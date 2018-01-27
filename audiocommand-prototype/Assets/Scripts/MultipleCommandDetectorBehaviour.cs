@@ -1,11 +1,13 @@
 ﻿using Lomont;
 using UnityEngine;
 
-public class CommandDetectorBehaviour : MonoBehaviour {
+public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 
 	// We assume that audio has a sampling 8 KHz
 	private const int SAMPLES = 4096; // 2 ^ 12
 	private const int DIVISOR = 15;
+
+	private const int SAMPLE_WIDTH = 1600;
 	
 	private LomontFFT _fourierTransform;
 	private float[] _values;
@@ -34,15 +36,19 @@ public class CommandDetectorBehaviour : MonoBehaviour {
 
 	private float[] GetFrecuencySampleFromAudioClip(AudioClip audioClip)
 	{
-		var frecuencySample = new float[SAMPLES / DIVISOR];
-		
-		_audioData = new float[audioClip.samples];
+		_audioData = new float[audioClip.samples * audioClip.channels];
 		audioClip.GetData(_audioData, 0);
+		return GetFrecuencySampleFromAudioData(_audioData);
+	}
+
+	private float[] GetFrecuencySampleFromAudioData(float[] audioData)
+	{
+		var frecuencySample = new float[SAMPLES / DIVISOR];
 		
 		_values = new float[2*SAMPLES];
 		for (var i = 0; i < SAMPLES; i++)
 		{
-			_values[2 * i] = _audioData[i];
+			_values[2 * i] = audioData[i];
 			_values[2 * i + 1] = 0;
 		}
 		
@@ -61,30 +67,40 @@ public class CommandDetectorBehaviour : MonoBehaviour {
 
 		for (var i = 0; i < SAMPLES / DIVISOR; i++)
 		{
-			frecuencySample[i] += Magnitude(_values[2 * i], _values[2 * i + 1]) / maxValue;
+			frecuencySample[i] = Magnitude(_values[2 * i], _values[2 * i + 1]) / maxValue;
 		}
 
 		return frecuencySample;
 	}
 
+
 	private void EvaluateAudioSource()
 	{
-		var frecuencySample = GetFrecuencySampleFromAudioClip(ToEvaluate);
-
-		var difference = 0f;
-		var summatory = 0f;
+		var index = 0;
+		while (index + SAMPLE_WIDTH < ToEvaluate.samples)
+		{
+			ToEvaluate.GetData(_audioData, index);
+			index += SAMPLE_WIDTH;
 		
-		for (var i = 0; i < SAMPLES / DIVISOR; i++)
-		{
-			difference += Mathf.Abs(frecuencySample[i] - _commandDetectorData[i]);
-		}
+			var frecuencySample = GetFrecuencySampleFromAudioData(_audioData);
 
-		for (var i = 0; i < SAMPLES; i++)
-		{
-			summatory += Mathf.Abs(_audioData[i]);
-		}
+			var difference = 0f;
+			var summatory = 0f;
 
-		Debug.Log("Difference " + difference + " Summatory " + summatory);
+			for (var i = 0; i < SAMPLES / DIVISOR; i++)
+			{
+				difference += Mathf.Abs(frecuencySample[i] - _commandDetectorData[i]);
+			}
+			for (var i = 0; i < SAMPLES; i++ )
+			{
+				summatory += Mathf.Abs(_audioData[i]);
+			}
+
+			if (difference < 34f && summatory > 150f)
+			{
+				Debug.Log("Values Diff Sum " + ((index - SAMPLE_WIDTH)/ 8000f) + " " + difference + " " + summatory);	
+			}
+		}
 	}
 	
 	private static float Magnitude(float value1, float value2)

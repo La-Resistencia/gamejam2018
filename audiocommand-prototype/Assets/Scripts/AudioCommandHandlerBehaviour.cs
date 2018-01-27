@@ -51,10 +51,8 @@ public class AudioCommandHandlerBehaviour : MonoBehaviour {
 			points[i] = new Vector3(0.0004f*i, Magnitude(_values[2 * i], _values[2 * i + 1])/maxValue, 0);
 		}
 		
-		
 		lineRenderer.positionCount = SAMPLES/DIVISOR;
         lineRenderer.SetPositions(points);
-		
 	}
 
 	private static float Magnitude(float value1, float value2)
