@@ -1,0 +1,12 @@
+/Debug/
+/Temp/
+/Library/
+/.vs/
+/.idea/
+/obj/
+*.sln
+*.csproj
+/*.userprefs
+/*.DotSettings.user
+/**/Unity3DRider.cs*
+/**/Assets/Plugins/Editor/JetBrains.meta
