@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dragonbones-example", "Assembly-CSharp.csproj", "{5774BA64-F600-E3C4-AE64-6D5CA4377296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dragonbones-example", "Assembly-CSharp-Editor.csproj", "{AF3C37C4-C79E-64DE-C1CD-B540E83DAFCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5774BA64-F600-E3C4-AE64-6D5CA4377296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5774BA64-F600-E3C4-AE64-6D5CA4377296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5774BA64-F600-E3C4-AE64-6D5CA4377296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5774BA64-F600-E3C4-AE64-6D5CA4377296}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF3C37C4-C79E-64DE-C1CD-B540E83DAFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF3C37C4-C79E-64DE-C1CD-B540E83DAFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF3C37C4-C79E-64DE-C1CD-B540E83DAFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF3C37C4-C79E-64DE-C1CD-B540E83DAFCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
