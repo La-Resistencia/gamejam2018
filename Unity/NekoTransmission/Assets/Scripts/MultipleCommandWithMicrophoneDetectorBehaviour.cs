@@ -115,7 +115,7 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour
 		}
 
 		//Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);	
-		if (_detectionCounter - _lastDetection > 7 && difference < 120f && summatory > 100f)
+		if (_detectionCounter - _lastDetection > 20 && difference < 120f && summatory > 100f)
 		{
 			Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);
 			JumpCommanderHandler.Jump();
