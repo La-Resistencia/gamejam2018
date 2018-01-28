@@ -1,1 +1,1 @@
-{"width":1024,"imagePath":"blackCat_Ani_tex.png","height":512,"name":"blackCat_Ani","SubTexture":[{"width":623,"y":1,"height":472,"name":"flipBlackCat","x":1},{"frameWidth":88,"y":1,"frameX":-3,"frameHeight":70,"frameY":-2,"width":80,"height":64,"name":"foot_back_toe_lt","x":626}]}
+{"width":1024,"SubTexture":[{"width":623,"y":1,"height":472,"name":"flipBlackCat","x":1},{"frameY":-2,"y":1,"frameWidth":88,"frameX":-3,"frameHeight":70,"width":80,"height":64,"name":"foot_back_toe_lt","x":626}],"height":512,"name":"blackCat_Ani","imagePath":"blackCat_Ani_tex.png"}
