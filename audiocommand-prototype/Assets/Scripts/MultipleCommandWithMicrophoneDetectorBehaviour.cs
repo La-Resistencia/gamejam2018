@@ -111,9 +111,11 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 			summatory += Mathf.Abs(_audioData[i]);
 		}
 
-		if (difference < 50f && summatory > 150f)
+		//Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);	
+		if (_detectionCounter - _lastDetection > 7 && difference < 37f && summatory > 70f)
 		{
-			Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);	
+			Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);
+			_lastDetection = _detectionCounter;
 		}
 	}
 	
