@@ -1,7 +1,8 @@
-﻿using Lomont;
+﻿using System.Collections;
+using Lomont;
 using UnityEngine;
 
-public class MultipleCommandDetectorBehaviour : MonoBehaviour {
+public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 
 	// We assume that audio has a sampling 8 KHz
 	private const int SAMPLES = 4096; // 2 ^ 12
@@ -14,10 +15,13 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 	private float[] _audioData;
 
 	private float[] _commandDetectorData;
-	private float _lastDetection = -1f;
 
 	public AudioClip[] Samples;
-	public AudioClip ToEvaluate;
+
+	private AudioClip microphoneAudioClip;
+	
+	private int _lastDetection = -1;
+	private int _detectionCounter = 0;
 	
 	public void Start ()
 	{
@@ -30,15 +34,30 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 			{
 				_commandDetectorData[j] = frecuencySample[j] / Samples.Length;
 			}
-		}
-
+		}		
+		
+		microphoneAudioClip = Microphone.Start(null, true, 10, 8000);
 		_audioData = new float[SAMPLES];
+		StartCoroutine(PreSampling());
+	}
+
+	private IEnumerator PreSampling()
+	{
+		yield return new WaitForSeconds(0.8f);
+		StartCoroutine(DoSampling());
+	}
+
+	private IEnumerator DoSampling()
+	{
+		yield return new WaitForSeconds(0.05f);
+		microphoneAudioClip.GetData(_audioData, (Microphone.GetPosition(null) - SAMPLES + 80000) % 80000 );
 		EvaluateAudioSource();
+		StartCoroutine(DoSampling());
 	}
 
 	private float[] GetFrecuencySampleFromAudioClip(AudioClip audioClip)
 	{
-		_audioData = new float[audioClip.samples];
+		_audioData = new float[audioClip.samples * audioClip.channels];
 		audioClip.GetData(_audioData, 0);
 		return GetFrecuencySampleFromAudioData(_audioData);
 	}
@@ -74,35 +93,27 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 
 		return frecuencySample;
 	}
-
-
+	
 	private void EvaluateAudioSource()
 	{
-		var index = 0;
-		while (index + SAMPLE_WIDTH < ToEvaluate.samples)
+		_detectionCounter++;
+		var frecuencySample = GetFrecuencySampleFromAudioData(_audioData);
+
+		var difference = 0f;
+		var summatory = 0f;
+
+		for (var i = 0; i < SAMPLES / DIVISOR; i++)
 		{
-			ToEvaluate.GetData(_audioData, index);
-			index += SAMPLE_WIDTH;
-		
-			var frecuencySample = GetFrecuencySampleFromAudioData(_audioData);
+			difference += Mathf.Abs(frecuencySample[i] - _commandDetectorData[i]);
+		}
+		for (var i = 0; i < SAMPLES; i++ )
+		{
+			summatory += Mathf.Abs(_audioData[i]);
+		}
 
-			var difference = 0f;
-			var summatory = 0f;
-
-			for (var i = 0; i < SAMPLES / DIVISOR; i++)
-			{
-				difference += Mathf.Abs(frecuencySample[i] - _commandDetectorData[i]);
-			}
-			for (var i = 0; i < SAMPLES; i++ )
-			{
-				summatory += Mathf.Abs(_audioData[i]);
-			}
-
-			if (((index - SAMPLE_WIDTH)/ 8000f) - _lastDetection > 1f && summatory > 150f && difference < 50f)
-			{
-				Debug.Log("Values Diff Sum " + ((index - SAMPLE_WIDTH)/ 8000f) + ": " + difference + " " + summatory);
-				_lastDetection = ((index - SAMPLE_WIDTH) / 8000f);
-			}
+		if (difference < 50f && summatory > 150f)
+		{
+			Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);	
 		}
 	}
 	
