@@ -41,15 +41,14 @@ public class SampleGetterBehaviour : MonoBehaviour
     {
         SampleLabel.text = "Muestra " + (_sampleCounter + 1);
         _sampleCounter++;
-        
-        _currentAudioClip = Microphone.Start(null, false, 2, 8000);
+         
         StartCoroutine(DoTakeSample());
         ProgressImage.rectTransform.sizeDelta = new Vector2(10, 30);
         _progress = 0;
         ProgressImage.color = Color.gray;
         StartCoroutine(DoProgress());
         
-        ClearLine();
+        //ClearLine();
     }
 
     private IEnumerator DoProgress()
@@ -69,6 +68,7 @@ public class SampleGetterBehaviour : MonoBehaviour
 
     private IEnumerator DoTakeSample()
     {
+        _currentAudioClip = Microphone.Start(null, false, 2, 8000);
         yield return new WaitForSeconds(2);
         _audioData = new float[SAMPLES];
         _currentAudioClip.GetData(_audioData, 0);
@@ -77,7 +77,10 @@ public class SampleGetterBehaviour : MonoBehaviour
         {
             _commandDetectorData[j] += frecuencySample[j] / ALL_SAMPLES;
         }
+
         Microphone.End(null);
+        _currentAudioClip.UnloadAudioData();
+        _currentAudioClip = null;
         
         var lineRenderer = GetComponentInChildren<LineRenderer>();
         lineRenderer.useWorldSpace = false;
