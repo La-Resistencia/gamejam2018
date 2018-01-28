@@ -4140,6 +4140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135818987}
   - component: {fileID: 2135818988}
+  - component: {fileID: 2135818989}
   m_Layer: 5
   m_Name: JumpCommandHandler
   m_TagString: Untagged
@@ -4177,3 +4178,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CatRigidbody2D: {fileID: 2078508629}
+--- !u!114 &2135818989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135818986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920b00e5485340a0af7ae08ad55e1a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpCommanderHandler: {fileID: 2135818988}
+  Samples:
+  - {fileID: 8300000, guid: 90dd2280689617740854559994bae95f, type: 3}
+  - {fileID: 8300000, guid: 855e965029e10414bb5660604cc624e6, type: 3}
+  - {fileID: 8300000, guid: 771419655fd545d448a7400914166187, type: 3}
+  - {fileID: 8300000, guid: d20c497df23dc004295dad9d8647950f, type: 3}
+  - {fileID: 8300000, guid: 52771231ec14ee140b7ece2f3b4bc7f1, type: 3}
