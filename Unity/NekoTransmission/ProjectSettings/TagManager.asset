@@ -51,3 +51,6 @@ TagManager:
   - name: Foreground
     uniqueID: 1632157909
     locked: 0
+  - name: Gato
+    uniqueID: 3443586351
+    locked: 0
