@@ -1,0 +1,640 @@
+fileFormatVersion: 2
+guid: 9666ec00454aeba48b1df36f7c057c69
+timeCreated: 1517109890
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: tileEgypt_0
+    21300002: tileEgypt_1
+    21300004: tileEgypt_2
+    21300006: tileEgypt_3
+    21300008: tileEgypt_5
+    21300010: tileEgypt_6
+    21300012: tileEgypt_7
+    21300014: tileEgypt_9
+    21300016: tileEgypt_10
+    21300018: tileEgypt_11
+    21300020: tileEgypt_12
+    21300022: tileEgypt_13
+    21300024: tileEgypt_15
+    21300026: tileEgypt_16
+    21300028: tileEgypt_17
+    21300030: tileEgypt_19
+    21300032: tileEgypt_20
+    21300034: tileEgypt_21
+    21300036: tileEgypt_29
+    21300038: tileEgypt_32
+    21300040: tileEgypt_37
+    21300042: tileEgypt_40
+    21300044: tileEgypt_41
+    21300046: tileEgypt_42
+    21300048: tileEgypt_43
+    21300050: tileEgypt_44
+    21300052: tileEgypt_45
+    21300054: tileEgypt_46
+    21300056: tileEgypt_47
+    21300058: tileEgypt_48
+    21300060: tileEgypt_49
+    21300062: tileEgypt_50
+    21300064: tileEgypt_51
+    21300066: tileEgypt_4
+    21300068: tileEgypt_8
+    21300070: tileEgypt_52
+    21300072: tileEgypt_14
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tileEgypt_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 869
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_1
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 869
+        width: 126
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_2
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 867
+        width: 126
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_3
+      rect:
+        serializedVersion: 2
+        x: 1217
+        y: 618
+        width: 147
+        height: 387
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_5
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 227
+        width: 377
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_6
+      rect:
+        serializedVersion: 2
+        x: 825
+        y: 487
+        width: 276
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_7
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 517
+        width: 304
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_9
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 415
+        width: 73
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_10
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 330
+        width: 265
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_11
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 347
+        width: 116
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_12
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 346
+        width: 72
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_13
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 342
+        width: 72
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_15
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 236
+        width: 49
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_16
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 11
+        width: 156
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_17
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 261
+        width: 85
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_19
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 87
+        width: 55
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_20
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 91
+        width: 40
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_21
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 92
+        width: 52
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_29
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 44
+        width: 73
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_32
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 116
+        width: 59
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_37
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 60
+        width: 132
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_40
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 8
+        width: 348
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_41
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 139
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_42
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 142
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_43
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 142
+        width: 46
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_44
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 27
+        width: 132
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_45
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 32
+        width: 181
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_46
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 0
+        width: 117
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_47
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 868
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_48
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 870
+        width: 125
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_49
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 745
+        width: 125
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_50
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 744
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_51
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 744
+        width: 125
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 479
+        width: 125
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 316
+        width: 124
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_52
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 193
+        width: 126
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: tileEgypt_14
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 188
+        width: 86
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
