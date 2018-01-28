@@ -28,7 +28,7 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 			var frecuencySample = GetFrecuencySampleFromAudioClip(Samples[i]);
 			for (var j = 0; j < SAMPLES / DIVISOR; j++)
 			{
-				_commandDetectorData[j] = frecuencySample[j] / Samples.Length;
+				_commandDetectorData[j] += frecuencySample[j] / Samples.Length;
 			}
 		}
 
@@ -98,7 +98,7 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 				summatory += Mathf.Abs(_audioData[i]);
 			}
 
-			if (((index - SAMPLE_WIDTH)/ 8000f) - _lastDetection > 1f && summatory > 150f && difference < 50f)
+			if (((index - SAMPLE_WIDTH)/ 8000f) - _lastDetection > 1f && summatory > 150f && difference < 120f)
 			{
 				Debug.Log("Values Diff Sum " + ((index - SAMPLE_WIDTH)/ 8000f) + ": " + difference + " " + summatory);
 				_lastDetection = ((index - SAMPLE_WIDTH) / 8000f);

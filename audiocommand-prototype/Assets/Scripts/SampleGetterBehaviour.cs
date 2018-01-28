@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class SampleGetterBehaviour : MonoBehaviour
 {
-    public  Image ProgressImage;
+    public Image ProgressImage;
+    public Text SampleLabel;
+    public Button TakeSampleButton;
+    public Button GameButton;
     
     // We assume that audio has a sampling 8 KHz
     private const int SAMPLES = 4096; // 2 ^ 12
@@ -25,6 +28,9 @@ public class SampleGetterBehaviour : MonoBehaviour
 
     public void Start()
     {
+        _commandDetectorData = new float[SAMPLES / DIVISOR];
+
+        GameButton.enabled = false;
     }
 
     public void Update()
@@ -33,13 +39,17 @@ public class SampleGetterBehaviour : MonoBehaviour
 
     public void TakeSample()
     {
+        SampleLabel.text = "Muestra " + (_sampleCounter + 1);
+        _sampleCounter++;
+        
         _currentAudioClip = Microphone.Start(null, false, 2, 8000);
         StartCoroutine(DoTakeSample());
         ProgressImage.rectTransform.sizeDelta = new Vector2(10, 30);
         _progress = 0;
         ProgressImage.color = Color.gray;
         StartCoroutine(DoProgress());
-
+        
+        ClearLine();
     }
 
     private IEnumerator DoProgress()
@@ -65,10 +75,52 @@ public class SampleGetterBehaviour : MonoBehaviour
         var frecuencySample = GetFrecuencySampleFromAudioData(_audioData);
         for (var j = 0; j < SAMPLES / DIVISOR; j++)
         {
-            _commandDetectorData[j] = frecuencySample[j] / ALL_SAMPLES;
+            _commandDetectorData[j] += frecuencySample[j] / ALL_SAMPLES;
         }
         Microphone.End(null);
         
+        var lineRenderer = GetComponentInChildren<LineRenderer>();
+        lineRenderer.useWorldSpace = false;
+        var points = new Vector3[SAMPLES/DIVISOR];
+        var maxValue = 0f;
+        for (var i = 0; i < SAMPLES / DIVISOR; i++)
+        {
+            var value = frecuencySample[i];
+            if (maxValue < value)
+            {
+                maxValue = value;
+            }
+        }
+
+        for (var i = 0; i < SAMPLES/DIVISOR; i++)
+        {
+            points[i] = new Vector3(0.0004f*i, frecuencySample[i]/maxValue, 0);
+        }
+		
+        lineRenderer.positionCount = SAMPLES/DIVISOR;
+        lineRenderer.SetPositions(points);
+
+        if (_sampleCounter >= ALL_SAMPLES)
+        {
+            GameButton.enabled = true;
+            TakeSampleButton.enabled = false;
+        }
+    }
+
+    private void ClearLine()
+    {
+        var lineRenderer = GetComponentInChildren<LineRenderer>();
+        lineRenderer.useWorldSpace = false;
+        var points = new Vector3[SAMPLES/DIVISOR];
+       
+
+        for (var i = 0; i < SAMPLES/DIVISOR; i++)
+        {
+            points[i] = Vector3.zero;
+        }
+		
+        lineRenderer.positionCount = SAMPLES/DIVISOR;
+        lineRenderer.SetPositions(points);
     }
     
     private float[] GetFrecuencySampleFromAudioData(float[] audioData)

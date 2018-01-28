@@ -32,7 +32,7 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 			var frecuencySample = GetFrecuencySampleFromAudioClip(Samples[i]);
 			for (var j = 0; j < SAMPLES / DIVISOR; j++)
 			{
-				_commandDetectorData[j] = frecuencySample[j] / Samples.Length;
+				_commandDetectorData[j] += frecuencySample[j] / Samples.Length;
 			}
 		}		
 		
@@ -112,7 +112,7 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 		}
 
 		//Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);	
-		if (_detectionCounter - _lastDetection > 7 && difference < 37f && summatory > 70f)
+		if (_detectionCounter - _lastDetection > 7 && difference < 120f && summatory > 100f)
 		{
 			Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);
 			_lastDetection = _detectionCounter;
