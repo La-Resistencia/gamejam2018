@@ -5,15 +5,16 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 
 	// We assume that audio has a sampling 8 KHz
 	private const int SAMPLES = 4096; // 2 ^ 12
-	private const int DIVISOR = 15;
+	private const int DIVISOR = 6;
 
-	private const int SAMPLE_WIDTH = 1600;
+	private const int SAMPLE_WIDTH = 400;
 	
 	private LomontFFT _fourierTransform;
 	private float[] _values;
 	private float[] _audioData;
 
 	private float[] _commandDetectorData;
+	private float _lastDetection = -1f;
 
 	public AudioClip[] Samples;
 	public AudioClip ToEvaluate;
@@ -30,13 +31,14 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 				_commandDetectorData[j] = frecuencySample[j] / Samples.Length;
 			}
 		}
-		
+
+		_audioData = new float[SAMPLES];
 		EvaluateAudioSource();
 	}
 
 	private float[] GetFrecuencySampleFromAudioClip(AudioClip audioClip)
 	{
-		_audioData = new float[audioClip.samples * audioClip.channels];
+		_audioData = new float[audioClip.samples];
 		audioClip.GetData(_audioData, 0);
 		return GetFrecuencySampleFromAudioData(_audioData);
 	}
@@ -96,9 +98,10 @@ public class MultipleCommandDetectorBehaviour : MonoBehaviour {
 				summatory += Mathf.Abs(_audioData[i]);
 			}
 
-			if (difference < 34f && summatory > 150f)
+			if (((index - SAMPLE_WIDTH)/ 8000f) - _lastDetection > 1f && summatory > 150f && difference < 50f)
 			{
-				Debug.Log("Values Diff Sum " + ((index - SAMPLE_WIDTH)/ 8000f) + " " + difference + " " + summatory);	
+				Debug.Log("Values Diff Sum " + ((index - SAMPLE_WIDTH)/ 8000f) + ": " + difference + " " + summatory);
+				_lastDetection = ((index - SAMPLE_WIDTH) / 8000f);
 			}
 		}
 	}

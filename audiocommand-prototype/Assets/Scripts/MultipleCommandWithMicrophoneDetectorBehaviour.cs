@@ -6,9 +6,9 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 
 	// We assume that audio has a sampling 8 KHz
 	private const int SAMPLES = 4096; // 2 ^ 12
-	private const int DIVISOR = 15;
+	private const int DIVISOR = 6;
 
-	private const int SAMPLE_WIDTH = 1600;
+	private const int SAMPLE_WIDTH = 400;
 	
 	private LomontFFT _fourierTransform;
 	private float[] _values;
@@ -19,6 +19,9 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 	public AudioClip[] Samples;
 
 	private AudioClip microphoneAudioClip;
+	
+	private int _lastDetection = -1;
+	private int _detectionCounter = 0;
 	
 	public void Start ()
 	{
@@ -34,6 +37,7 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 		}		
 		
 		microphoneAudioClip = Microphone.Start(null, true, 10, 8000);
+		_audioData = new float[SAMPLES];
 		StartCoroutine(PreSampling());
 	}
 
@@ -45,8 +49,8 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 
 	private IEnumerator DoSampling()
 	{
-		yield return new WaitForSeconds(0.2f);
-		microphoneAudioClip.GetData(_audioData, (Microphone.GetPosition(null) - 1600 + 80000) % 80000 );
+		yield return new WaitForSeconds(0.05f);
+		microphoneAudioClip.GetData(_audioData, (Microphone.GetPosition(null) - SAMPLES + 80000) % 80000 );
 		EvaluateAudioSource();
 		StartCoroutine(DoSampling());
 	}
@@ -92,6 +96,7 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 	
 	private void EvaluateAudioSource()
 	{
+		_detectionCounter++;
 		var frecuencySample = GetFrecuencySampleFromAudioData(_audioData);
 
 		var difference = 0f;
@@ -106,8 +111,7 @@ public class MultipleCommandWithMicrophoneDetectorBehaviour : MonoBehaviour {
 			summatory += Mathf.Abs(_audioData[i]);
 		}
 
-		Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);
-		if (difference < 34f && summatory > 150f)
+		if (difference < 50f && summatory > 150f)
 		{
 			Debug.Log("Values Diff Sum " + " " + difference + " " + summatory);	
 		}

@@ -4,8 +4,8 @@ using UnityEngine;
 public class CommandDetectorBehaviour : MonoBehaviour {
 
 	// We assume that audio has a sampling 8 KHz
-	private const int SAMPLES = 4096; // 2 ^ 12
-	private const int DIVISOR = 15;
+	private const int SAMPLES = 16384; // 2 ^ 12
+	private const int DIVISOR = 6;
 	
 	private LomontFFT _fourierTransform;
 	private float[] _values;
